@@ -5,7 +5,8 @@ import org.apache.ignite.cache.query.annotations.QuerySqlField;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "CACHETEST.CACHETEST")
+@Entity
+@Table(name = "CACHETEST.CACHETEST")
 public class CacheTestObject implements Serializable {
     @Id
     @QuerySqlField
