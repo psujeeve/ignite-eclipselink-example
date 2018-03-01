@@ -25,8 +25,12 @@ public class IgniteEclipseLinkExample {
                     em.getTransaction().commit();
 
                     final CacheTestObject emp2 = em.find(CacheTestObject.class, 1l);
-
+                    System.out.println("Results using persistence find method");
                     System.out.println("Find in the same entity manager: " + emp2.getFirstName() + " " + emp2.getLastName());
+                    
+                    //Adding JPQL Implementation
+                    CacheTestObject ctObj = (CacheTestObject)em.createQuery("SELECT v FROM CacheTestObject v").getSingleResult();
+                    System.out.println("Results using JPQL : " + ctObj.getFirstName() + " " + ctObj.getLastName());
 
                 }
                 finally {
